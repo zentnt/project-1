@@ -1,12 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
 <title>Hitung Penjualan Barang</title>
 </head>
 <body>
-	<div align="center"><br />PERHITUNGAN PENJUALAN BARANG 2b.php</div> <br /><br />
-<form id="form1" name="form1" method="post" action="2b.php">
+	<div align="center"><br />
+	PERHITUNGAN PENJUALAN BARANG 2c.php</div> <br /><br />
+ <form method="post" action="" target="_self">
   <table width="300" border="1" align="center">
         <tr>
           <td>Kode Barang</td>
@@ -54,17 +52,24 @@
 
 <?php
 error_reporting(0);
+
 $jumlah=0;
-$kode='';
-$nama='';
+$kode="";
+$nama="";
 $harga=0;
 $ongkos_kirim=0;
 $diskon_status=0;
 $total_diskon=0;
-$jumlah=$_POST['jumlah'];
-$kode=$_POST['kode'];
-$kota_kirim=$_POST['kota_kirim'];
-$status_member=$_POST['status_member'];
+$jumlah=$_POST[jumlah];
+$kode=$_POST[kode];
+$kota_kirim=$_POST[kota_kirim];
+$status_member=$_POST[status_member];
+$submit = $_POST['Hitung'];
+?>
+<?php if($submit) 
+	//echo "<script>alert('Data OK')</script>";
+{
+
 
 if ($kode=="A01"){
 	$nama="Speaker";
@@ -186,6 +191,10 @@ $totalbayar=$subtotal-$total_diskon+$ongkos_kirim;
     <td><div align="right">Rp. <?php echo number_format($totalbayar,0,",",".");?>;</div></td>
   </tr>
 </table>
+
+<?php } ?>
+
+
 </center>
 <p>&nbsp;</p>
 </body>
